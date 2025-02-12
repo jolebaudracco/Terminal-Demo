@@ -51,6 +51,14 @@ app.get('/dogs', (req, res) => {
     res.send("Woof!!!")
 })
 
+app.get('/search', (req, res) => {
+    const { q } = req.query;
+    if(!q){
+        res.send('Nothing found if nothing is searched')
+    }
+    res.send(`<h1>Search results for: ${q}</h1>`)
+})
+
 app.get('/', (req, res) => {
     res.send("Here I have a slash")
 })
@@ -62,6 +70,8 @@ app.get(/(.*)/, (req, res) => {
 app.get('*', (req, res) => {
     res.send("I don't know that path")
 })
+
+
 
 //Inicia el servidor en el puerto 8080.
 //Cuando se ejecuta el código, en la terminal aparecerá "Listening on port 8080!".
