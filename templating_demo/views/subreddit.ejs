@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= subreddit %></title>
+    <title><%= name %></title>
 </head>
 <body>
-    <h1>Browsing The <%= subreddit %> subreddit</h1>
+    <h1>Browsing The <%= name %> subreddit</h1>
+    <h2>This is the <%= description %></h2>
+    <p><%= subscribers %> Total Subscribers </p>
+    <hr>
+
+    <% for(let post of posts) { %>
+        <article>
+            <h3><%= post.title %></h3>
+        </article>
+    <% } %>
 </body>
 </html>
