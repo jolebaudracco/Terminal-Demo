@@ -13,7 +13,10 @@
 
     <% for(let post of posts) { %>
         <article>
-            <h3><%= post.title %></h3>
+            <p><%= post.title %> - <b><%= post.author %></b></p>
+            <% if(post.img){ %>
+                <img src="<%= post.img %>" alt="">
+            <% } %>
         </article>
     <% } %>
 </body>
