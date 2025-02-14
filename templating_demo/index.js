@@ -21,8 +21,11 @@ app.get('/cats', (req, res) => {
 app.get('/r/:subreddit', (req, res) =>{
     const { subreddit } = req.params;
     const data = redditData[subreddit];
-    console.log(data)
-    res.render('subreddit', { ...data });
+    if(data) {
+        res.render('subreddit', { ...data });
+    } else {
+        res.render('NotFound', { subreddit })
+    }
 })
 
 app.get('/rand', (req, res) => {
