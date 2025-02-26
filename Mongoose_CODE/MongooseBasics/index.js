@@ -15,6 +15,8 @@ const movieSchema = new mongoose.Schema({
     rating: String
 });
 
+//ALERT: MALNDANDO OOS CAMBIOS A LA NOTEBOOK
+
 const Movie = mongoose.model('Movie', movieSchema);
 // const amadeus = new Movie({ title: 'Amadeus', year: 1986, score: 9.2, rating: 'R' });
 
