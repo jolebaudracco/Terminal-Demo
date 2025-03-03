@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/shopApp')
+mongoose.connect('mongodb://localhost:27017/shopApp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => {
         console.log("CONNECTION OPEN!!!")
     })
@@ -77,13 +80,6 @@ const findProduct = async () => {
 // Product.fireSale().then(res => console.log(res))
 
 // findProduct();
-
-
-
-
-
-
-
 // const bike = new Product({ name: 'Cycling Jersey', price: 28.50, categories: ['Cycling'], size: 'XS' })
 // bike.save()
 //     .then(data => {
@@ -106,3 +102,17 @@ const findProduct = async () => {
 //     })
 
 
+const addProduct = async () => {
+    const newProduct = new Product({
+        name: 'Mountain Bike',
+        price: 599,
+        categories: ['Sports', 'Outdoor'],
+        size: 'M'
+    });
+
+    await newProduct.save();
+    console.log('Product saved:', newProduct);
+};
+
+// Llama a la función para insertar el producto
+addProduct();
